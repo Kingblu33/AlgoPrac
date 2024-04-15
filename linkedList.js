@@ -4,13 +4,11 @@ class Node {
         this.next = null;
     }
 }
-
-
-
 class LinkedList {
     constructor(){
         this.head = null;
         this.tail = null;
+        this.length = 0;
     }
 
     push(value){
@@ -24,6 +22,7 @@ class LinkedList {
             this.tail = newNode;
         }
         // console.log(this.tail);
+        ++this.length;
         return this.tail.value;
     }
     //removes from the back of the linkedList
@@ -44,6 +43,7 @@ class LinkedList {
         
         this.tail = prev;
         this.tail.next = null;
+        --this.length
         return current.value;
     }
     // method should take a value and assign it to the head of the linked list
@@ -57,12 +57,14 @@ class LinkedList {
             this.head = newNode;
             newNode.next= temp;
         }
+        ++this.length;
         return;
     }
     // Method should remove the head of the linked list
     shift(){
         if(!this.head) return null;
         this.head = this.head.next
+        --this.length;
         return;
     }
 
@@ -96,6 +98,8 @@ class LinkedList {
             prev = current;
             current = current.next;
         }
+        ++this.size;
+        return;
     }
 
     reverse() {
@@ -118,30 +122,10 @@ class LinkedList {
         }
         return;
     }
-        
-    
 }
-//  c    
-//  1 -> 2 -> 3 -> 4
-
-// null <- 1
-//
-
 
 
 const list = new LinkedList();
-
-
-// list.push(1)
-// list.push(2)
-// list.push(3)
-// list.push(5)
-// list.pop(); 
-// list.printList();
-// list.pop();
-// list.pop();
-
-// list.printList();
 
 list.push(2)
 list.push(3) 
@@ -152,6 +136,7 @@ list.printList();
 console.log("should reverse")
 list.reverse();
 list.printList();
+console.log("This is the list current lenght:",list.length);
 
 
 console.log(list.head,list.tail)
