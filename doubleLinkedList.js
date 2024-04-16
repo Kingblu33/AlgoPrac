@@ -178,7 +178,10 @@ newList.push(5);
 // console.log(newList.insert(20,3));
 newList.insert(3,20)
 newList.set(6,30)
-newList.printList();
+newList.printList();  
+newList.printList();  
+newList.printList();  
+newList.printList();  
 
 
 
